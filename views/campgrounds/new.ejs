@@ -1,0 +1,29 @@
+<%- include('partials/header.ejs') %>
+    <main class="container mt-3">
+        <div class="row">
+            <h1 class="text-center">New Campground</h1>
+            <div class="col-6 offset-3">
+                <form method="POST" action="/campgrounds">
+                    <section class="mb-3">
+                        <label for="title" class="form-label">Title: </label>
+                        <input type="text" name="title" id="title" class="form-control" placeholder="campground title">
+                    </section>
+                    <section class="mb-3">
+                        <label for="location" class="form-label">Location: </label>
+                        <input type="text" name="location" id="location" class="form-control" placeholder="campground location">
+                    </section>
+                    <section class="mb-3">
+                        <label for="image" class="form-label">Image URL: </label>
+                        <input type="text" name="image" id="image" class="form-control" placeholder="campground image url">
+                    </section>
+                    <section class="mb-3">
+                        <label for="location" class="form-label">Description: </label>
+                        <textarea name="description" id="description" class="form-control" placeholder="campground location"></textarea>
+                    </section>
+                    <button type="submit" class="btn btn-success">Create</button>
+                </form>
+            </div>
+        </div>
+
+    </main>
+    <%- include('partials/footer.ejs') %>
