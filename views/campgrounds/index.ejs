@@ -1,20 +1,22 @@
 <%- include('partials/header.ejs') %>
 
     <main class="container">
-        <a href="/campgrounds/new">Create a new campground</a>
-        <% for (let campground of campgrounds) { %>
-            <div class="card" style="width: 18rem;">
-                <img src="<%= campground.image %>" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <%=campground.title %>
-                    </h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="/campgrounds/<%=campground._id%>" class="btn btn-primary">Info</a>
+        <div class="row ">
+            <% for (let campground of campgrounds) { %>
+                <div class="col-4 mb-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src="<%= campground.image %>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%=campground.title %>
+                            </h5>
+                            <p class="card-text"><%= campground.location %></p>
+                            <a href="/campgrounds/<%=campground._id%>" class="btn btn-primary">Info</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <% } %>
+                <% } %>
+        </div>
     </main>
 
     <%- include('partials/footer.ejs') %>

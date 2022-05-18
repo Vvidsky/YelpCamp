@@ -24,6 +24,7 @@ const seedDB = async () => {
             title: `${sample(descriptors)} ${sample(places)}`,
             description: `lorem ipsum dolor sit amet, consect`,
             image: `https://source.unsplash.com/collection/483251`,
+            price: price
         })
         await camp.save();
     }
