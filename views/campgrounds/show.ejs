@@ -1,13 +1,20 @@
 <%- include('partials/header.ejs') %>
     <main class="container mt-3">
+        <%- include('partials/flash.ejs') %>
         <div class="row">
-            <div class="col-6 offset-3">
+            <div class="col-6">
                 <div class="card">
                     <img src="<%= campground.image %>" alt="campground" max-height="300px">
                     <div class="card-body">
-                        <h4 class="card-title"><%= campground.title %></h4>
-                        <h5 class="card-text"><%= campground.location %></h5>
-                        <p class="card-text"><%= campground.description %></p>
+                        <h4 class="card-title">
+                            <%= campground.title %>
+                        </h4>
+                        <h5 class="card-text">
+                            <%= campground.location %>
+                        </h5>
+                        <p class="card-text">
+                            <%= campground.description %>
+                        </p>
                         <a href="/campgrounds/<%= campground._id %>/edit" class="btn btn-warning float-start">Edit</a>
                         <form method="POST" action="/campgrounds/<%= campground._id %>?_method=DELETE">
                             <button type="submit" class="btn btn-danger float-end">Delete</button>
@@ -15,11 +22,49 @@
                     </div>
                     <div class="card-footer">
                         $<%= campground.price %> / Night
-                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <form class="mb-3 needs-validation" method="POST" action="/campgrounds/<%= campground._id %>/reviews"
+                    novalidate>
+                    <div class="mb-3">
+                        <label class="form-label" for="rating">Rating</label>
+                        <input class="form-range" type="range" name="review[rating]" id="rating" min="1" max="5">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="body">Review</label>
+                        <textarea class="form-control" id="body" name="review[body]" required></textarea>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success">Add a review!</button>
+                </form>
+                <div class="mb-3">
+                    <% for (review of campground.reviews) { %>
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <p>
+                                    <strong>Rating:</strong>
+                                    <%= review.rating %>
+                                </p>
+                                <p>
+                                    <strong>Review:</strong>
+                                    <%= review.body %>
+                                </p>
+                                <form method="POST"
+                                    action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=DELETE">
+                                    <button type="submit" class="btn btn-danger float-end">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                        <% } %>
                 </div>
             </div>
         </div>
-        <a href="/campgrounds" class="btn btn-primary">Back to home page</a>
-    </main>
 
+        <a href="/campgrounds" class="btn btn-primary mb-3">&larr; Back to home page</a>
+    </main>
     <%- include('partials/footer.ejs') %>
