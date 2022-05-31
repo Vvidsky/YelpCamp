@@ -1,0 +1,39 @@
+<%- include('../campgrounds/partials/header.ejs') %>
+
+    <main class="container">
+        <div class="card p-0 mt-5 col-6 offset-3 shadow">
+            <img src="https://images.unsplash.com/photo-1458324393608-a57f6c541b4d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                class="card-img-top" alt="img" height="300px">
+            <div class="card-body">
+                <h2 class="text-center">Register</h2>
+                <form method="POST" action="/register" class="needs-validation" novalidate>
+                    <section class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" name="email" id="email" class="form-control" placeholder="email" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </section>
+                    <section class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" name="username" id="username" class="form-control" placeholder="username"
+                            required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </section>
+                    <section class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" name="password" id="password" class="form-control" placeholder="password"
+                            required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </section>
+                    <button type="submit" class="btn btn-primary">Register!</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <%- include('../campgrounds/partials/footer.ejs') %>

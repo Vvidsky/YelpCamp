@@ -1,0 +1,35 @@
+<%- include('../campgrounds/partials/header.ejs') %>
+    <main class="container">
+        <div class="row">
+            <%- include('../campgrounds/partials/flash.ejs') %>
+        </div>
+        <div class="row">
+            <div class="card col-6 offset-3 shadow p-0 my-5">
+                <img src="https://images.unsplash.com/photo-1458324393608-a57f6c541b4d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="img" height="300px">
+                <div class="card-body">
+                <form method="POST" action="/login" class="needs-validation" novalidate>
+                    <h2 class="text-center">Login</h2>
+                    <section class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" name="username" id="username" class="form-control" placeholder="username"
+                            required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </section>
+                    <section class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" name="password" id="password" class="form-control"
+                            placeholder="password" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </section>
+                    <button type="submit" class="btn btn-success">Login</button>
+                </form>
+            </div>
+            </div>
+        </div>
+    </main>
+
+    <%- include('../campgrounds/partials/footer.ejs') %>
